@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="TaskApp">
+  <head>
+    <title>Full MEAN Stack Task List</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body ng-controller="TaskController" data-ng-init="getTasks()">
+
+  	<main class="container">
+    <h1>Full MEAN Stack Task List</h1>
+
+    <section class="jumbotron">
+    	<h3>Add a new Task</h3>
+    	<form class="form-inline">
+	    	<label for="title">Title:</label>
+	    	<input ng-model="title" />
+	    	<button class="btn btn-success" ng-click="addTask()">Add</button>
+    	</form>
+    </section>
+    <section>
+	    <h3>{{ tasks.length }} Tasks</h3>
+	    <ul class="list-group">
+          <li class="list-group-item" ng-repeat="task in tasks">
+            <span class="col-sm-6">{{ task.title }}</span>
+            <button class="btn btn-danger" ng-click="deleteTask(task._id)">Delete</button>
+          </li>
+	    </ul>
+    </section>
+
+    </main>
+
+    <!-- js -->
+    <script src="/javascripts/angular.min.js"></script>
+    <script src="/javascripts/angular-ui-router.js"></script>
+    <script src="/javascripts/taskApp.js"></script>
+  </body>
+</html>
